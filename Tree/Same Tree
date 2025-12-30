@@ -1,0 +1,15 @@
+class Solution {
+public:
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+        // both null
+        if (!p && !q) return true;
+
+        // one null, one not
+        if (!p || !q) return false;
+
+        // values must match and subtrees must match
+        return (p->val == q->val) &&
+               isSameTree(p->left, q->left) &&
+               isSameTree(p->right, q->right);
+    }
+};
